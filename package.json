@@ -1,0 +1,31 @@
+{
+  "name": "mouji",
+  "version": "1.0.0",
+  "description": "Performs a random mouse action on an interval to avoid screen lock.",
+  "main": "src/index.js",
+  "bin": {
+    "mouji": "./src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mouse",
+    "jiggle",
+    "jiggler",
+    "jitter",
+    "jitterer",
+    "shake",
+    "present",
+    "presentation",
+    "lock",
+    "screen",
+    "screen-lock"
+  ],
+  "author": "Johnny Reina <johnny.r.reina@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^7.1.0",
+    "robotjs": "^0.6.0"
+  }
+}
