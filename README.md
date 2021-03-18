@@ -1,4 +1,4 @@
-## Mouji
+## Mouji [![Mouji NPM badge](https://img.shields.io/npm/v/mouji)](https://www.npmjs.com/package/mouji)
 _Performs a random mouse action on an interval to avoid screen locking_
 
 ## Why?

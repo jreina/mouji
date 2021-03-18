@@ -27,5 +27,13 @@
   "dependencies": {
     "commander": "^7.1.0",
     "robotjs": "^0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jreina/mouji"
+  },
+  "homepage": "https://github.com/jreina/mouji#mouji",
+  "bugs": {
+    "url": "https://github.com/jreina/mouji/issues"
   }
 }
