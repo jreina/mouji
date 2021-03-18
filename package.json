@@ -1,6 +1,6 @@
 {
   "name": "mouji",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Performs a random mouse action on an interval to avoid screen lock.",
   "main": "src/index.js",
   "bin": {
