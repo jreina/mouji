@@ -21,16 +21,12 @@ program
   .parse();
 
 const { interval, bound, verbose } = program.opts();
-const { height, width } = robot.getScreenSize();
-const clampToScreenHeight = clamp(0, height);
-const clampToScreenWidth = clamp(0, width);
 
 function log(...args) {
   if (verbose) console.log(new Date().toISOString(), ...args);
 }
 
 log(`Starting up`);
-log(`Detected screen dimensions: ${width}x${height}`);
 log(`Performing random mouse action every ${interval} seconds`);
 log(`Max delta ${bound}px`);
 
@@ -39,17 +35,11 @@ const handleInterval = () => {
   const deltaY = Math.ceil(Math.random() * bound * randomSign());
   log(`Generated deltas (x, y) = (${deltaX}, ${deltaY})`);
   const { x: currX, y: currY } = robot.getMousePos();
-  const x = clampToScreenWidth(currX + deltaX);
-  const y = clampToScreenHeight(currY + deltaY);
+  const x = currX + deltaX;
+  const y = currY + deltaY;
   log(`Moving mouse to (${x}, ${y})`);
   robot.moveMouse(x, y);
 };
-
-function clamp(min, max) {
-  return function (x) {
-    return x < min ? min : x > max ? max : x;
-  };
-}
 
 function randomSign() {
   return 0.5 - Math.random() > 0 ? 1 : -1;
