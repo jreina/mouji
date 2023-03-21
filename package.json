@@ -7,7 +7,9 @@
     "mouji": "./src/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts"
   },
   "keywords": [
     "mouse",
@@ -26,7 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^7.1.0",
-    "robotjs": "^0.6.0"
+    "robotjs": "^0.6.0",
+    "typescript": "^5.0.2"
   },
   "repository": {
     "type": "git",
@@ -35,5 +38,8 @@
   "homepage": "https://github.com/jreina/mouji#mouji",
   "bugs": {
     "url": "https://github.com/jreina/mouji/issues"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
   }
 }
