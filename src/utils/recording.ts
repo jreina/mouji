@@ -1,4 +1,3 @@
-import { CursorLocation } from "../types/CursorLocation";
 import { MoujiRecording } from "../types/MoujiRecording";
 
 export function serializeRecording(recording: MoujiRecording): string {

@@ -5,9 +5,16 @@ import { listRecordings } from "./commands/listRecordings";
 import { record } from "./commands/record";
 import { replay } from "./commands/replay";
 import { shake } from "./commands/shake";
-import { log } from "./utils/log";
 
-program.name("mouji");
+program.name("mouji").option<boolean>(
+  "-v, --verbose",
+  "Enable verbose logging. Disabled by default",
+  () => {
+    process.env.MOUJI_VERBOSE = "true";
+    return true;
+  },
+  false
+);
 
 program
   .command("shake")
@@ -23,8 +30,7 @@ program
     "Specify the maximum number of pixels to move for each mouse action. Default is 5",
     (x) => parseInt(x, 10),
     5
-  )
-  .option("-v, --verbose", "Enable verbose logging. Disabled by default");
+  );
 
 program
   .command("record")
