@@ -1,12 +1,12 @@
 import robot from "robotjs";
 import { CursorLocation } from "../types/CursorLocation";
 import recordings from "../persistence/recordings";
-import { verbose } from "../utils/logger";
+import { verbose, info } from "../utils/logger";
 
 export function record({ interval }: { interval: number }) {
-  verbose("Recording mouse movement.");
+  info("Recording mouse movement.");
   verbose(`Polling duration set to ${interval} milliseconds`);
-  verbose("Press CTRL+C to finish.");
+  info("Press CTRL+C to finish.");
   const positions: Array<CursorLocation> = [];
   setInterval(() => {
     positions.push(robot.getMousePos());
