@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { config } from "../config/config";
 import { MoujiRecording } from "../types/MoujiRecording";
-import { verbose } from "../utils/logger";
+import { info, verbose } from "../utils/logger";
 import { deserializeRecording, serializeRecording } from "../utils/recording";
 
 function ensureMoujiTempExists(): void {
@@ -50,7 +50,7 @@ export function save(recording: MoujiRecording): string {
   const file = path.join(config.recordPath, `${Date.now()}.moujirec`);
   fs.writeFileSync(file, serializeRecording(recording));
 
-  verbose(`Saved recording to ${file}`);
+  info(`Saved recording to ${file}`);
   verbose(`${recording.data.length} items in recording path`);
 
   return file;

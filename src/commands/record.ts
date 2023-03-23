@@ -13,7 +13,7 @@ export function record({ interval }: { interval: number }) {
   }, interval);
 
   process.on("SIGINT", () => {
-    verbose("wrapping up recording...");
+    info("wrapping up recording...");
 
     recordings.save({ data: positions, meta: { interval } });
 
