@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import { listRecordings } from "./commands/listRecordings";
 import { record } from "./commands/record";
 import { replay } from "./commands/replay";
 import { shake } from "./commands/shake";
@@ -40,6 +39,11 @@ program
     "Polling duration for recording in milliseconds. Default is 100ms",
     (x) => parseInt(x, 10),
     100
+  )
+  .option(
+    "-f, --filename <filename>",
+    "The file name where results should be saved. Uses the current timestamp by default",
+    Date.now().toString()
   );
 
 program
@@ -52,7 +56,5 @@ program
     5000
   )
   .requiredOption("-r, --recording <file>", "The recording file to replay");
-
-program.command("list-recordings").action(listRecordings);
 
 program.parse();

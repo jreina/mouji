@@ -3,7 +3,13 @@ import { CursorLocation } from "../types/CursorLocation";
 import recordings from "../persistence/recordings";
 import { verbose, info } from "../utils/logger";
 
-export function record({ interval }: { interval: number }) {
+export function record({
+  interval,
+  filename,
+}: {
+  interval: number;
+  filename: string;
+}) {
   info("Recording mouse movement.");
   verbose(`Polling duration set to ${interval} milliseconds`);
   info("Press CTRL+C to finish.");
@@ -15,7 +21,7 @@ export function record({ interval }: { interval: number }) {
   process.on("SIGINT", () => {
     info("wrapping up recording...");
 
-    recordings.save({ data: positions, meta: { interval } });
+    recordings.save({ data: positions, meta: { interval } }, filename);
 
     process.exit();
   });
