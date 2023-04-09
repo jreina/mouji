@@ -27,7 +27,7 @@ describe("record", () => {
     const filename = "test";
 
     expect(() => {
-      record({ interval, filename });
+      record(filename, { interval });
       positions.forEach((position) => {
         mockRobot.getMousePos.mockReturnValueOnce(position);
       });

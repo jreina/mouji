@@ -3,13 +3,14 @@ import { CursorLocation } from "../types/CursorLocation";
 import recordings from "../persistence/recordings";
 import { verbose, info } from "../utils/logger";
 
-export function record({
-  interval,
-  filename,
-}: {
-  interval: number;
-  filename: string;
-}): void {
+export function record(
+  filename: string,
+  {
+    interval,
+  }: {
+    interval: number;
+  }
+): void {
   info("Recording mouse movement.");
   verbose(`Polling duration set to ${interval} milliseconds`);
   info("Press CTRL+C to finish.");

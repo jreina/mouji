@@ -34,16 +34,12 @@ program
 program
   .command("record")
   .action(record)
+  .argument("<file>", "The file name where results should be saved.")
   .option(
     "-i, --interval <milliseconds>",
     "Polling duration for recording in milliseconds. Default is 100ms",
     (x) => parseInt(x, 10),
     100
-  )
-  .option(
-    "-f, --filename <filename>",
-    "The file name where results should be saved. Uses the current timestamp by default",
-    Date.now().toString()
   );
 
 program
@@ -55,6 +51,6 @@ program
     "Pause duration between replays in milliseconds. Default is 5000ms",
     (x) => parseInt(x, 10),
     5000
-  )
+  );
 
 program.parse();
