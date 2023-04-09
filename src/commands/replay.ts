@@ -16,11 +16,11 @@ export async function replay(
 
   const tracks = recordings.load(file);
 
-  setInterval(async () => {
+  while (true) {
     for (let item of tracks.data) {
       await wait(tracks.meta.interval);
       robot.moveMouse(item.x, item.y);
     }
     await wait(pause);
-  }, pause);
+  }
 }
