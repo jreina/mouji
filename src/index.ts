@@ -49,12 +49,12 @@ program
 program
   .command("replay")
   .action(replay)
+  .argument("<file>", "The recording file to replay")
   .option(
     "-p, --pause <milliseconds>",
     "Pause duration between replays in milliseconds. Default is 5000ms",
     (x) => parseInt(x, 10),
     5000
   )
-  .requiredOption("-r, --recording <file>", "The recording file to replay");
 
 program.parse();

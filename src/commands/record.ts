@@ -9,7 +9,7 @@ export function record({
 }: {
   interval: number;
   filename: string;
-}) {
+}): void {
   info("Recording mouse movement.");
   verbose(`Polling duration set to ${interval} milliseconds`);
   info("Press CTRL+C to finish.");
@@ -23,6 +23,6 @@ export function record({
 
     recordings.save({ data: positions, meta: { interval } }, filename);
 
-    process.exit();
+    process.exit(0);
   });
 }

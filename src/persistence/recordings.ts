@@ -2,10 +2,13 @@ import fs from "fs";
 import path from "path";
 import { MoujiRecording } from "../types/MoujiRecording";
 import { info, verbose } from "../utils/logger";
-import { deserializeRecording, serializeRecording } from "../utils/recording";
+import {
+  deserializeRecording,
+  serializeRecording,
+} from "../types/MoujiRecording";
 
 export function load(recording: string): MoujiRecording {
-  const file = path.join(process.cwd(), `${recording}.moujirec`);
+  const file = path.resolve(process.cwd(), recording);
   verbose(`Reading recording from ${file}`);
 
   const tracks = deserializeRecording(
@@ -18,13 +21,12 @@ export function load(recording: string): MoujiRecording {
 }
 
 export function save(recording: MoujiRecording, name: string): string {
-  const file = path.join(process.cwd(), `${name}.moujirec`);
-  fs.writeFileSync(file, serializeRecording(recording));
+  fs.writeFileSync(name, serializeRecording(recording));
 
-  info(`Saved recording to ${file}`);
+  info(`Saved recording to ${name}`);
   verbose(`${recording.data.length} items in recording path`);
 
-  return file;
+  return name;
 }
 
 export default { load, save };
