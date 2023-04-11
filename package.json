@@ -9,7 +9,12 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "prepare": "husky install",
+    "format": "prettier --check **/*.{ts,json}",
+    "format:fix": "prettier --write **/*.{ts,json}",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --ext .ts . --fix"
   },
   "keywords": [
     "mouse",
@@ -41,7 +46,12 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.38.0",
+    "husky": "^8.0.3",
     "jest": "^29.5.0",
+    "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
