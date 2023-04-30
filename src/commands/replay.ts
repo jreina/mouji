@@ -16,8 +16,9 @@ export async function replay(
 
   const tracks = recordings.load(file);
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
-    for (let item of tracks.data) {
+    for (const item of tracks.data) {
       await wait(tracks.meta.interval);
       robot.moveMouse(item.x, item.y);
     }

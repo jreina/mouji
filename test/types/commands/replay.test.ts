@@ -1,7 +1,6 @@
 import robot from "robotjs";
 
 import { load } from "../../../src/persistence/recordings";
-import { replay } from "../../../src/commands/replay";
 
 jest.useFakeTimers();
 jest.mock("robotjs", () => ({ moveMouse: jest.fn() }));
@@ -20,7 +19,6 @@ describe("replay", () => {
   it.skip("should replay mouse movement", async () => {
     const interval = 10;
     const pause = 100;
-    const recording = "test";
 
     mockLoad.mockReturnValueOnce({
       data: [
