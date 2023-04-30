@@ -1,7 +1,13 @@
 import robot from "robotjs";
 import { verbose } from "../utils/logger";
 
-export function shake({ interval, bound }: { interval: number; bound: number }): void {
+export function shake({
+  interval,
+  bound,
+}: {
+  interval: number;
+  bound: number;
+}): void {
   verbose(`Performing random mouse action every ${interval} seconds`);
   verbose(`Max delta ${bound}px`);
 

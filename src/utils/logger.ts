@@ -1,9 +1,9 @@
-export function info(...args: Array<any>) {
+export function info(...args: Array<unknown>) {
   console.log(new Date().toISOString(), ...args);
 }
 
-export function verbose(...args: Array<any>) {
-  if(process.env.MOUJI_VERBOSE === 'true') {
+export function verbose(...args: Array<unknown>) {
+  if (process.env.MOUJI_VERBOSE === "true") {
     console.info(new Date().toISOString(), ...args);
   }
 }
